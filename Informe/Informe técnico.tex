@@ -30,17 +30,104 @@
 \tableofcontents
 \newpage
 
-% Secciones ejemplo
 \section{Introducción}
-% Escribe aquí la introducción
+La morfología matemática es una técnica de procesamiento de imágenes ampliamente utilizada
+para la eliminación de ruido y la mejora de estructuras en fotografías digitales.
+Entre sus operaciones fundamentales se encuentran la \textbf{erosión}, que tiende a eliminar
+los detalles claros reduciendo regiones brillantes, y la \textbf{dilatación}, que expande
+estas regiones y elimina detalles oscuros.
+
+En este proyecto se implementó un sistema en \textbf{Java} que permite aplicar ambas
+operaciones sobre imágenes en formato \textbf{PNG} y en modelo de color \textbf{RGB}.
+La solución fue desarrollada en dos variantes: una \textbf{secuencial} y otra
+\textbf{paralela}, con el objetivo de analizar las diferencias de rendimiento y validar
+los resultados generados bajo distintos elementos estructurantes.
 
 \section{Objetivos}
-% Escribe aquí los objetivos
+\begin{itemize}
+    \item Implementar en Java las operaciones de erosión y dilatación en imágenes a color.
+    \item Diseñar una solución \textbf{secuencial} que sirva como referencia para validar
+    la corrección de la versión paralela.
+    \item Desarrollar una implementación \textbf{paralela} mediante división de la imagen
+    en submatrices (tiles) utilizando múltiples hilos.
+    \item Comparar el rendimiento entre las versiones secuencial y paralela utilizando
+    distintos tamaños de imagen y elementos estructurantes.
+    \item Elaborar un informe técnico que documente el proceso, las decisiones de diseño
+    y los resultados experimentales obtenidos.
+\end{itemize}
 
 \section{Desarrollo}
-% Escribe aquí el desarrollo del proyecto
+\subsection{Estructura del proyecto}
+El proyecto se organizó siguiendo la convención de Maven, con los siguientes módulos
+principales:
+\begin{itemize}
+    \item \textbf{core}: contiene las implementaciones de morfología secuencial y paralela,
+    además del módulo de benchmark.
+    \item \textbf{model}: define las estructuras de datos utilizadas como la política de borde,
+    el tipo de operación y los elementos estructurantes.
+    \item \textbf{util}: funciones auxiliares para la lectura/escritura de imágenes y medición de tiempos.
+    \item \textbf{menu}: controlador de la aplicación, encargado de recibir parámetros de ejecución
+    o interactuar con el usuario mediante consola.
+\end{itemize}
+
+\subsection{Implementación secuencial}
+La versión secuencial recorre cada píxel de la imagen y aplica el elemento estructurante
+sobre sus vecinos, reemplazando el valor del píxel central por el mínimo o máximo
+dependiendo de la operación (erosión o dilatación).  
+El manejo de bordes se realizó bajo dos políticas:
+\begin{itemize}
+    \item \textbf{Ignore}: se ignoran los vecinos que caen fuera de los límites de la imagen.
+    \item \textbf{Pad}: se rellenan los valores fuera de rango con un valor neutro (255 en erosión,
+    0 en dilatación).
+\end{itemize}
+
+\subsection{Implementación paralela}
+Para la versión paralela se dividió la imagen en \textbf{submatrices horizontales} o tiles.
+Cada tile incluye un \textbf{halo} adicional para evitar inconsistencias en los bordes
+al aplicar el elemento estructurante.  
+La paralelización se implementó mediante un \texttt{ExecutorService} en Java, asignando
+a cada hilo el procesamiento de un bloque independiente.
+
+Esta solución puede clasificarse en la \textbf{arquitectura MIMD} de Flynn, ya que
+diferentes hilos ejecutan instrucciones distintas sobre distintos datos.
+
+\subsection{Elementos estructurantes}
+Se implementaron cinco elementos estructurantes:
+\begin{enumerate}
+    \item Cuadrado 3x3
+    \item Cruz 3x3
+    \item X 3x3
+    \item Línea horizontal 1x3
+    \item Diamante 5x5
+\end{enumerate}
+
+\subsection{Resultados experimentales}
+Se evaluaron distintas imágenes con tamaños de hasta 10.000 x 10.000 píxeles.
+Los experimentos incluyeron mediciones de tiempo para:
+\begin{itemize}
+    \item \textbf{Erosión vs. Dilatación}
+    \item \textbf{Secuencial vs. Paralelo} con 2, 4, 8 y 16 hilos.
+    \item Distintos elementos estructurantes.
+\end{itemize}
+
+Los tiempos fueron registrados únicamente durante la fase de cómputo, excluyendo
+lectura y escritura de archivos. Para cada caso se realizaron tres ejecuciones,
+almacenando el promedio y desviación estándar.
 
 \section{Conclusiones}
-% Escribe aquí las conclusiones
+El desarrollo de este proyecto permitió comprender en detalle cómo la
+\textbf{paralelización} mejora el rendimiento en operaciones intensivas de procesamiento
+de imágenes.  
+Las principales conclusiones fueron:
+\begin{itemize}
+    \item La implementación paralela mostró mejoras significativas en imágenes grandes
+    (superiores a 2000 x 2000 píxeles).
+    \item El tiempo de ejecución decrece al aumentar los hilos, aunque la ganancia
+    se estabiliza a partir de un número similar al de núcleos físicos de la CPU.
+    \item La política de borde \textbf{Pad} asegura mayor consistencia visual en los resultados,
+    mientras que \textbf{Ignore} es más eficiente en tiempo.
+    \item El uso de un diseño modular permitió mantener la equivalencia entre los resultados
+    de la versión secuencial y paralela.
+\end{itemize}
 
 \end{document}

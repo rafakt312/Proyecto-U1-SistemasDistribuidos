@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.16)  16 SEP 2025 18:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.16)  25 SEP 2025 23:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -114,28 +114,35 @@ LaTeX Font Info:    ... okay on input line 8.
 
 [1
 
-{C:/Users/victo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (Informe técnico.toc)
+{C:/Users/victo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (Informe técnico.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 4.
+)
 \tf@toc=\write3
 \openout3 = `"Informe técnico.toc"'.
 
- [1] [2] (Informe técnico.aux)
+ [1] [2] [3] [4] (Informe técnico.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 1202 strings out of 474486
- 22199 string characters out of 5743755
- 1925542 words of memory out of 5000000
- 23534 multiletter control sequences out of 15000+600000
- 560491 words of font info for 44 fonts, out of 8000000 for 9000
+ 1233 strings out of 474486
+ 22599 string characters out of 5743755
+ 1933542 words of memory out of 5000000
+ 23556 multiletter control sequences out of 15000+600000
+ 563435 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,5n,65p,283b,144s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/victo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/victo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/victo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on "Informe técnico.pdf" (3 pages, 40912 bytes).
+ 57i,5n,65p,283b,177s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\victo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/victo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/victo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/victo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/victo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on "Informe técnico.pdf" (5 pages, 61001 bytes).
 PDF statistics:
- 27 PDF objects out of 1000 (max. 8388607)
+ 43 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
