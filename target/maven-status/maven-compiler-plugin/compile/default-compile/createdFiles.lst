@@ -1,0 +1,11 @@
+cl\proyecto\morfologia\menu\MenuRunner.class
+cl\proyecto\morfologia\model\EdgePolicy.class
+cl\proyecto\morfologia\core\Benchmark$Result.class
+cl\proyecto\morfologia\core\MorphologyParallel.class
+cl\proyecto\morfologia\model\StructuringElement.class
+cl\proyecto\morfologia\Main.class
+cl\proyecto\morfologia\core\Morphology.class
+cl\proyecto\morfologia\model\Operation.class
+cl\proyecto\morfologia\util\Timer.class
+cl\proyecto\morfologia\core\Benchmark.class
+cl\proyecto\morfologia\util\ImageIOUtils.class
