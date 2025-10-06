@@ -8,15 +8,11 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Ejecuta pruebas de rendimiento (secuencial y paralelo)
- * para comparar tiempos de ejecución.
- */
 public final class Benchmark {
 
     public record Result(BufferedImage result, double avgMs, double stdMs, int runs) {}
 
-    private static final int RUNS = 3;
+    private static final int RUNS = 3; 
 
     public static Result runSequential(BufferedImage img, Operation op, boolean[][] se, EdgePolicy edge) {
         List<Double> times = new ArrayList<>(RUNS);
